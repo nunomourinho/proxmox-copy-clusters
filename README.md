@@ -118,3 +118,32 @@ tqdm
 ---
 
 With these instructions, you can set up and run the chunk copy script using your preferred environment management tool.
+
+## Author and License
+
+---
+
+**This project is developed and maintained by [Nuno Mourinho](https://github.com/nunomourinho).**
+
+Licensed under the **MIT License**, this code is open-source and designed to empower developers and IT professionals in managing Proxmox Backup files with flexibility and efficiency.
+
+### License Overview
+
+By using this project, you agree to the terms of the MIT License. In essence, you are free to:
+
+- **Use** this code in any of your own projects, both personal and commercial.
+- **Modify** and **distribute** the code, provided that original credits are retained.
+- **Share** your modifications for the benefit of the open-source community.
+
+However, please note:
+
+- This project is provided "as-is," without any warranties or guarantees of any kind. The author is not liable for any potential issues or damages resulting from its use.
+
+### Contributing
+
+Contributions, feedback, and suggestions are always welcome! Whether it’s reporting a bug, proposing new features, or making improvements, feel free to open a pull request or issue on GitHub.
+
+---
+
+Thank you for supporting open-source development!
+
