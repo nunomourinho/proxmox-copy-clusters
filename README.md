@@ -1,4 +1,38 @@
 
+# Proxmox Backup Recovery Tools
+
+A set of tools designed to recover lost clusters and missing chunks in Proxmox Backup due to `fsck` (file system check) operations or file system corruption. This project provides scripts that can be run in either Python or Bash, offering flexibility and compatibility.
+
+## Features
+
+### 1. Recovering Lost Clusters
+The script `copy-clusters-in-lost-found.sh`:
+- Identifies files moved to the `lost+found` folder during an `fsck` operation.
+- Recreates the original folder structure of the clusters, enabling Proxmox Backup to recognize them again.
+
+### 2. Recovering Missing Chunks
+The script `copy-missing-chunks-in-log.sh` works in two stages:
+1. **Log Generation**: Run a `verify` operation on Proxmox Backup to generate a log of errors. Save this log for the next step.
+2. **Chunk Recovery**: Use the generated log and a separate, healthy Proxmox Backup disk as a parameter. This script extracts the problematic chunks from the healthy copy and replaces the corrupted ones on the original disk.
+
+## Usage
+
+### Prerequisites
+- Proxmox Backup logs and access to both the corrupted disk and a healthy Proxmox Backup disk.
+
+### Running the Scripts
+- **Cluster Recovery**:
+  ```bash
+  ./copy-clusters-in-lost-found.sh /path/to/lost-found
+  ```
+- **Chunk Recovery:
+Perform a verify in Proxmox Backup to generate the log of errors.
+Use the log file to recover chunks:
+
+  ```bash
+   ./copy-missing-chunks-in-log.sh /path/to/error-log /path/to/healthy-disk
+  ```
+
 # Chunk Copy Script for Proxmox Backup Files
 
 This script processes a `.fidx` index file from Proxmox Backup, identifies the required chunks, and copies them into a specified output folder, maintaining the original directory structure. It avoids copying duplicate chunks and shows progress as it runs.
